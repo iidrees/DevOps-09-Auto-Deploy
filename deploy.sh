@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # File: deploy.sh
 
-set -o errexit
+set -x
 
 function updateUbuntu {
   echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< RUN UBUNTU UPDATE >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
@@ -30,6 +30,7 @@ function cloneApp {
   echo ""
   echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SEE CONTENT OF REPOSITORY >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   cd Events-Manager
+  sudo git checkout chore/deploy-on-aws/158841810
   ls -a
   echo ""
 }
@@ -100,7 +101,7 @@ EOF'
 }
 
 function startApp {
-  echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<< RUN PM2 TO START APPLICATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  echo "<<<<<<<<<<<<<<<<<<<< INSTALL DEPENDENCIES & START APPLICATION >>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   # Install npm modules and dependencies application needs
   sudo npm install --unsafe-perm
   NODE_ENV=production npm run seq:db # Run database migratrion in production
