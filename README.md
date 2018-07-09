@@ -31,13 +31,15 @@ EOF'
 
 #### Ensure to change the values on the left side of the variable to the correct value.
 
+#### Also endevour to create your domain name and ensure that you have made the necessary configuration on AWS Route 53
+
+#### after configuration please change line 85 the "server_name example.com www.example.com" with your own domain name.
+
+#### Please only change the domain name
+
 #### save the file and then run either of this commands
 
 ```
 1. sudo bash deploy.sh
 2. sudo chmod +x deploy.sh && ./deploy.sh
 ```
-#### Also endevour to create your domain name and ensure that you have made the necessary configuration on AWS Route 53 
-#### after configuration please change line 85 the "server_name example.com www.example.com" with your own domain name.
-#### Please only change the domain name
-
