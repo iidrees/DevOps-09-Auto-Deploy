@@ -72,6 +72,10 @@ echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< SETUP NGINX >>>>>>>>>>>>>>>>>>>>>>>>>>
 function setupNginx {
   echo ""
   # Setup nginx by installing the nginx package
+  # Nginx is installed as a reverse proxy service that allows our application though 
+  # being served on port e.g 3000 to be accessible to the outside world on the HTTP /HTTPS
+  # Port of 80 / 443 respectively. So Nginx abstract out our port and protects it from the outside world
+
   echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL NGINX >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   sudo apt-get install nginx -y
   echo ""
@@ -115,7 +119,6 @@ function runSSLSetup {
   echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<< INSTALL > CONFIGURE SSL >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
   echo ""
   # install packages for the setup and config of the SSL certificate
-  sudo apt-get update
   sudo apt-get install software-properties-common
   sudo add-apt-repository ppa:certbot/certbot
   sudo apt-get update
